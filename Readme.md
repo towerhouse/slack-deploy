@@ -43,7 +43,7 @@ So we want to create a new slash command:
 
 [![towerhousestudio](http://slack.towerhousestudio.com/image/slash_command_config.png)](https://github.com/towerhouse/slack-deploy)
 
-To with slack, you have to configure the command:
+With slack, you have to configure the command:
 
 [![towerhousestudio](http://slack.towerhousestudio.com/image/slash_command.png)](https://github.com/towerhouse/slack-deploy)
 
@@ -52,9 +52,9 @@ To with slack, you have to configure the command:
 Finally you must configure the app. To do that you must edit _config/Config.php_ and set:
 * Your slash token for the command
 * Username and Icon to show in the output of slack command
-* Enviroment
+* Environment
 * User to run the git commands
-* Structure of each enviroment, including project and path of each project
+* Structure of each environment, including project and path of each project
 
 ```php
 class Config {
@@ -81,7 +81,7 @@ class Config {
 
 ### Usage
 
-Now that everything is installed you run in slack the command:
+Now that everything is installed you run the command in slack:
 
 _/deploy <project> <enviroment> <git-branch>_
 
