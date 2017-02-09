@@ -2,15 +2,13 @@
 
 [![towerhousestudio](http://towerhousestudio.com/wp-content/uploads/2016/04/nuevo-logo-towerhouse2-1s-300x296.png)](http://towerhousestudio.com)
 
-This is an internal tool that we did for our team to deploy code in our beta servers using slack and git. 
+This is an internal tool that we did for our team to deploy code in our beta servers using slack and git.
 
 ## Dependencies
 
 This project is written in PHP over a LAMP stack and is using [Phalcon PHP](https://phalconphp.com/) over to manage requests and responses.
 
 ## Instalation
-
-<img alt="architecture" />
 
 ### Server Configuration
 
@@ -33,7 +31,7 @@ Next I was using apache as the web server, so I created a new site. Here is my *
 </VirtualHost>
 ```
 
-Finally you must [install Phalcon PHP](https://phalconphp.com/en/download) in your server. 
+Finally you must [install Phalcon PHP](https://phalconphp.com/en/download) in your server.
 
 ### Slack Configuration
 
