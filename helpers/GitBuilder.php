@@ -26,7 +26,7 @@ class GitBuilder
 	}
 
 	public function status () {
-		$this->cmd .= 'git ' . $this->optGitDir() . ' status';
+		$this->cmd .= 'git ' . $this->optGitDir() . ' status -u no';
 		return $this;
 	}
 

@@ -2,7 +2,6 @@
 
 require_once(__DIR__ . '/Deploy.php');
 require_once(__DIR__ . '/../config/Config.php');
-require_once(__DIR__ . '/../helpers/SlackHelper.php');
 require_once(__DIR__ . '/../helpers/GitBuilder.php');
 
 class DeployBeta extends Deploy
@@ -41,18 +40,8 @@ class DeployBeta extends Deploy
 	 		}
 
 			// Notify results to slack
-			$this->clearMessage();
-			$this->message['attachments'] = array (
-	 			array (
-	 				'title' => 'GIT results for branch ' .$this->branch,
-	 				'text' => implode ( " ", $builder->output ),
-					'color' => 'good',
-					'author_name' => Config::SLACK_USER_NAME,
-	 				'author_icon' => Config::SLACK_USER_ICON
-           		)
-           	);
+	 		$this->notifyBuilderOutput('GIT results for branch ' .$this->branch, $builder);
 
-			SlackHelper::notify($this->webhook, $this->message);
  		} else {
 			throw new Exception("Webhook not set");
  		}

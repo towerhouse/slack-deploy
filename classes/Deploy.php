@@ -34,8 +34,26 @@ abstract class Deploy
 		$this->message = [];
 	}
 
-	protected function start(){
-		SlackHelper::notifyRaw($this->webhook, "*Running the deploy ...*");
+	protected function start($msg = null){
+		if ( $msg ) {
+			SlackHelper::notifyRaw($this->webhook, '*'. $msg . '*');
+		} else {
+			SlackHelper::notifyRaw($this->webhook, "*Running the deploy ...*");
+		}
+	}
+	
+	protected function notifyBuilderOutput( $title, $builder ) {
+		$this->clearMessage();
+		$this->message['attachments'] = array (
+			array (
+				'title' => $title,
+				'text' => implode ( " ", $builder->output ),
+				'color' => 'good',
+				'author_name' => Config::SLACK_USER_NAME,
+				'author_icon' => Config::SLACK_USER_ICON
+			)
+		);
+		SlackHelper::notify($this->webhook, $this->message);
 	}
 
 	abstract public function run();
